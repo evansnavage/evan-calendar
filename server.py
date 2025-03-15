@@ -12,10 +12,10 @@ async def get_index():
 async def read_file_by_name(name: str):
     return data.read_json(name)
 
-@app.get("/read-all/", "Breaking change")
+@app.get("/read-all/")
 async def read_all():
     return data.read_all()
 
 @app.get("/read-range/")
-async def read_in_range(start_date: str="2025-03-13", end_date: str="2025-03-13"):
+async def read_in_range(start_date, end_date):
     return data.filter_date_range(start_date, end_date)
